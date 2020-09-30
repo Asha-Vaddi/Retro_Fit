@@ -40,7 +40,7 @@ public class ViewActivity extends AppCompatActivity {
         queries.put("apiKey","47c604f4f2e74ce6b660c30bd24d7b24");
         queries.put("sources","google-news");
 
-        Call<String> getNews = apiInterface.getAllNews(queries);
+       /* Call<String> getNews = apiInterface.getAllNews(queries);
 
         getNews.enqueue(new Callback<String>() {
             @Override
@@ -62,6 +62,26 @@ public class ViewActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
+                pg.hide();
+                Toast.makeText(ViewActivity.this,"Failed", Toast.LENGTH_LONG).show();
+            }
+        });*/
+        Call<Result> getNews = apiInterface.getAllNews(queries);
+
+        getNews.enqueue(new Callback<Result>() {
+            @Override
+            public void onResponse(Call<Result> call, Response<Result> response) {
+                pg.hide();
+                Result result = response.body();
+                ArrayList<Article> articles = result.articles;
+                NewsAdapter newsAdapter = new NewsAdapter(ViewActivity.this,articles);
+                mRcArticleData.setAdapter(newsAdapter);
+
+                Toast.makeText(ViewActivity.this,"success",Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(Call<Result> call, Throwable t) {
                 pg.hide();
                 Toast.makeText(ViewActivity.this,"Failed", Toast.LENGTH_LONG).show();
             }

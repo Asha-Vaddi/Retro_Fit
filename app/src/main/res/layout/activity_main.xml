@@ -4,17 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
-
-
-
 
     <Button
         android:id="@+id/btn_get_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="view articles" />
+        android:text="view articles"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="140dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rc_news_category"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rc_news"/>
 
 
 

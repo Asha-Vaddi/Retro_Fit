@@ -14,7 +14,7 @@ public class Article {
     public String content;
     public Source source;
 
-    public static Article parseArticleResponse(JSONObject jsonObject){
+   /* public static Article parseArticleResponse(JSONObject jsonObject){
         Article item = new Article();
         item.author =jsonObject.optString("author");
         item.title = jsonObject.optString("title");
@@ -25,5 +25,5 @@ public class Article {
         item.content = jsonObject.optString("content");
         item.source = Source.parseSourceResponse(jsonObject.optJSONObject("source"));
         return item;
-    }
+    } */
 }

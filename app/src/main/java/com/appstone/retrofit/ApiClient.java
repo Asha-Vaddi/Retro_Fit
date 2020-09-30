@@ -4,7 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+//import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class ApiClient {
 
@@ -13,8 +14,11 @@ public class ApiClient {
 
         OkHttpClient httpClient = new OkHttpClient.Builder().connectTimeout(1, TimeUnit.MINUTES)
                 .readTimeout(30,TimeUnit.SECONDS).writeTimeout(30,TimeUnit.SECONDS).build();
+     //   client = new Retrofit.Builder().client(httpClient)
+    //            .baseUrl("https://newsapi.org/v2/").addConverterFactory(ScalarsConverterFactory.create()).build();
+
         client = new Retrofit.Builder().client(httpClient)
-                .baseUrl("https://newsapi.org/v2/").addConverterFactory(ScalarsConverterFactory.create()).build();
+                 .baseUrl("https://newsapi.org/v2/").addConverterFactory(GsonConverterFactory.create()).build();
 
         return client;
 
