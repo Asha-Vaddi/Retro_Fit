@@ -1,6 +1,7 @@
 package com.appstone.retrofit;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleH
       holder.mTvTitle.setText(article.title);
       holder.mTvDescription.setText(article.description);
       holder.mTvAuthor.setText(article.author);
-      Glide.with(context).load(article.urlToimage).into(holder.mIvPhoto);
+       // Log.i("position"+position,article.urlToImage);
+      Glide.with(context).load(article.urlToImage).placeholder(R.drawable.ic_launcher_background).into(holder.mIvPhoto);
     }
 
     @Override

@@ -72,10 +72,10 @@ public class ViewActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
                 pg.hide();
-                Result result = response.body();
-                ArrayList<Article> articles = result.articles;
-                NewsAdapter newsAdapter = new NewsAdapter(ViewActivity.this,articles);
-                mRcArticleData.setAdapter(newsAdapter);
+                Result resultValue = response.body();
+                ArrayList<Article> articles = resultValue.articles;
+                ArticleAdapter adapter = new ArticleAdapter(ViewActivity.this,articles);
+                mRcArticleData.setAdapter(adapter);
 
                 Toast.makeText(ViewActivity.this,"success",Toast.LENGTH_LONG).show();
             }

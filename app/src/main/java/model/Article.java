@@ -1,17 +1,27 @@
 package model;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class Article {
+    @SerializedName("author")
     public String author;
+    @SerializedName("title")
     public String title;
+    @SerializedName("description")
     public String description;
+    @SerializedName("url")
     public String url;
-    public String urlToimage;
+    @SerializedName("urlToImage")
+    public String urlToImage;
+    @SerializedName("publishedAt")
     public String publishedAt;
+    @SerializedName("content")
     public String content;
+    @SerializedName("source")
     public Source source;
 
    /* public static Article parseArticleResponse(JSONObject jsonObject){
